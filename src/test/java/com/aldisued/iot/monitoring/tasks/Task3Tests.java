@@ -35,25 +35,25 @@ public class Task3Tests extends IntegrationTestBase {
 
   @Test
   public void verifySensorReadingProperties() {
-    var sensorReadingDto = testSennsorReadingDto();
+    var sensorReadingDto = testSensorReadingDto();
 
     var sensorReadingEntity = sensorReadingService.saveSensorReading(sensorReadingDto);
 
-    Assertions.assertEquals(sensorReadingDto.value(), sensorReadingEntity.getValue());
-    Assertions.assertEquals(sensorReadingDto.timestamp(), sensorReadingEntity.getTimestamp());
+    Assertions.assertEquals(sensorReadingDto.value(), sensorReadingEntity.value());
+    Assertions.assertEquals(sensorReadingDto.timestamp(), sensorReadingEntity.timestamp());
   }
 
   @Test
   @Transactional
   public void verifySensorEntity() {
-    var sensorReadingDto = testSennsorReadingDto();
+    var sensorReadingDto = testSensorReadingDto();
 
     var sensorReadingEntity = sensorReadingService.saveSensorReading(sensorReadingDto);
 
-    Assertions.assertEquals(SENSOR_ID, sensorReadingEntity.getSensor().getId());
+    Assertions.assertEquals(SENSOR_ID, sensorReadingEntity.sensorId());
   }
 
-  private static @NotNull SensorReadingDto testSennsorReadingDto() {
+  private static @NotNull SensorReadingDto testSensorReadingDto() {
     return new SensorReadingDto(
         SENSOR_ID,
         23.45,

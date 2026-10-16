@@ -42,6 +42,11 @@ public class Task6Tests extends IntegrationTestBase {
     alertRepository.deleteAll();
   }
 
+//  @BeforeEach
+//  public void setup(){
+//    when(kafkaTemplate.send(any(), any())).thenReturn(CompletableFuture.completedFuture(null));
+//  }
+
   @Test
   public void verifySensorReadingProperties() {
     var alertDto = testAlertDto();
